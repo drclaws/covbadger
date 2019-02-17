@@ -40,23 +40,16 @@ func TestRenderBadge(t *testing.T) {
 		t.Errorf("Incorrect color for coverage badge, expected brightgreen")
 	}
 
-	badge, _ = RenderBadge(70)
+	badge, _ = RenderBadge(76)
 
 	if strings.Contains(badge, colors["yellow"]) != true {
 		t.Errorf("Incorrect color for coverage badge, expected yellow")
 	}
-
-	badge, _ = RenderBadge(60)
-
-	if strings.Contains(badge, colors["orange"]) != true {
-		t.Errorf("Incorrect color for coverage badge, expected orange")
-	}
-
-	badge, _ = RenderBadge(40)
+	
+	badge, _ = RenderBadge(75)
 
 	if strings.Contains(badge, colors["red"]) != true {
-		t.Errorf("Incorrect color for coverage badge, expected red")
-		t.Errorf(badge)
+		t.Errorf("Incorrect color for coverage badge, expected yellow")
 	}
 
 	badge, err = RenderBadge(101)

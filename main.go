@@ -21,7 +21,6 @@ var colors = map[string]string{
 	"brightgreen": "#44cc11",
 	"green":       "#97ca00",
 	"yellow":      "#dfb317",
-	"orange":      "#fe7d37",
 	"red":         "#e05d44",
 }
 
@@ -54,14 +53,12 @@ func RenderBadge(coverage int) (string, error) {
 
 	color := colors["red"]
 
-	if coverage > 95 {
+	if coverage >= 99 {
 		color = colors["brightgreen"]
-	} else if coverage > 80 {
+	} else if coverage >= 90 {
 		color = colors["green"]
-	} else if coverage > 60 {
+	} else if coverage > 75 {
 		color = colors["yellow"]
-	} else if coverage > 40 {
-		color = colors["orange"]
 	}
 
 	_ = badgeTemplate.Execute(&buffer, &Badge{coverage, color})
